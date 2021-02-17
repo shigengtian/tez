@@ -15,7 +15,7 @@ class ImageDataset:
         image_paths,
         targets,
         augmentations=None,
-        backend="pil",
+        backend="cv2",
         channel_first=True,
         grayscale=False,
     ):
