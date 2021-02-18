@@ -302,6 +302,7 @@ class Model(nn.Module):
         fp16=False,
         train_collate_fn=None,
         valid_collate_fn=None,
+        model_name=""
     ):
         """
         The model fit function. Heavily inspired by tf/keras, this function is the core of Tez and this is the only
@@ -343,4 +344,6 @@ class Model(nn.Module):
             if self._model_state.value == "end":
                 break
             self.current_epoch += 1
+            self.save(model_name + "_" +str(self.current_epoch))
+            
         self.train_state = enums.TrainingState.TRAIN_END
